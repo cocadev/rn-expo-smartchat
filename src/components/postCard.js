@@ -4,12 +4,13 @@ import { p } from '../common/normalize';
 import { colors } from '../common/colors';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { images } from '../common/images';
+import { POSTS } from '../common/fakeDB';
 
 export default class PostCard extends Component {
     render() {
-        const { item } = this.props;
+        const { item, index } = this.props;
         return (
-            <View style={styles.row}>
+            <View style={[styles.row, POSTS.length-1 == index && { borderBottomWidth: 0}]}>
                 <View style={{ flexDirection: 'row' }}>
                     <TouchableOpacity onPress={this.props.onGoToProfile}>
                         <Image

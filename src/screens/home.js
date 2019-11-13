@@ -35,7 +35,7 @@ export default class HomeScreen extends Component {
                     keyExtractor={(item, i) => String(i)}
                     renderItem={this._renderItem}
                     numColumns={1}
-                    ListFooterComponent={<View style={{ height: p(80) }} />}
+                    ListFooterComponent={<View style={{ height: p(150) }} />}
                 />
                 <LinearGradient
                     colors={['transparent', colors.PURPLE]}
