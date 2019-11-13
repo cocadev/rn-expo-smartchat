@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { p } from '../common/normalize';
 import { colors } from '../common/colors';
-import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
-import { Actions } from 'react-native-router-flux';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { images } from '../common/images';
 
 export default class PostCard extends Component {
@@ -18,7 +17,7 @@ export default class PostCard extends Component {
                             style={styles.avatar}
                         />
                     </TouchableOpacity>
-                    <View style={{ flex: 1, marginLeft: p(10) }}>
+                    <View style={{ flex: 1, marginLeft: 10 }}>
                         <Text style={styles.titleText}>
                             {item.username}
                         </Text>
@@ -30,9 +29,9 @@ export default class PostCard extends Component {
                             </Text>
                         </Text>
                     </View>
-                    <Image source={images.dots} style={{ marginTop: 15}}/>
+                    <Image source={images.dots} style={{ marginTop: 15 }} />
                 </View>
-                <View style={{ marginLeft: p(40) }}>
+                <View style={{ marginLeft: 40 }}>
                     {
                         item.description &&
                         <Text style={styles.normalText}>
@@ -43,44 +42,41 @@ export default class PostCard extends Component {
                         item.photo &&
                         <Image
                             source={{ uri: item.photo }}
-                            style={styles.photo}
+                            style={styles.bigPhoto}
                         />
                     }
                     {
                         item.photogroup &&
-                        <View style={{ flexDirection: 'row' }}>
-                            <View style={{ flex: 2, marginRight: p(6) }}>
+                        <View style={{ flexDirection: 'row', marginTop: 17 }}>
+                            <View style={{ marginRight: 0 }}>
                                 <Image
                                     source={{ uri: item.photogroup[0] }}
                                     style={styles.photo}
                                 />
                             </View>
-                            <View style={{ flex: 1, marginLeft: p(6) }}>
+                            <View style={{ marginLeft: 7 }}>
                                 <Image
                                     source={{ uri: item.photogroup[1] }}
-                                    style={[styles.photo, { height: p(65) }]}
+                                    style={styles.photo2}
                                 />
                                 <Image
                                     source={{ uri: item.photogroup[2] }}
-                                    style={[styles.photo, { height: p(65) }]}
+                                    style={styles.photo2}
                                 />
                             </View>
                         </View>
                     }
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <MaterialCommunityIcons
-                            name="message-reply"
-                            size={p(15)}
-                            style={styles.icon}
-                            color={colors.DARKGREY}
+                        <Image
+                            source={images.chat}
+                            style={styles.chatImg}
                         />
                         <Text style={styles.greyText}>
                             {item.responses} Responses
-                    </Text>
+                        </Text>
                         <MaterialCommunityIcons
                             name="crown"
                             size={p(18)}
-                            style={styles.icon}
                             color={item.fav ? colors.YELLOW : colors.DARKGREY}
                         />
                     </View>
@@ -92,7 +88,7 @@ export default class PostCard extends Component {
 
 const styles = StyleSheet.create({
     row: {
-        paddingVertical: 12,
+        paddingVertical: 16,
         paddingRight: 18,
         paddingLeft: 15,
         borderBottomWidth: 2,
@@ -122,16 +118,39 @@ const styles = StyleSheet.create({
     },
     greyText: {
         color: colors.DARKGREY,
-        fontSize: p(10),
-        marginLeft: p(3),
+        fontSize: 13,
+        lineHeight: 18,
+        marginLeft: 4,
+        marginVertical: 14,
         flex: 1
     },
     photo: {
-        width: '100%',
-        height: p(140),
-        borderRadius: p(12),
-        marginVertical: p(6),
-        backgroundColor: colors.DARKGREY,
+        width: 196,
+        height: 155,
+        borderRadius: 20,
+        // marginTop: 17,
+        backgroundColor: colors.GREY7,
         resizeMode: 'cover'
+    },
+    photo2: {
+        width: 93,
+        height: 74,
+        borderRadius: 20,
+        marginBottom: 6,
+        backgroundColor: colors.GREY7,
+        resizeMode: 'cover'
+    },
+    bigPhoto: {
+        width: '100%',
+        height: 230,
+        marginTop: 14.25,
+        borderRadius: 20,
+        // marginTop: 17,
+        backgroundColor: colors.GREY7,
+        resizeMode: 'cover'
+    },
+    chatImg: {
+        width: 18,
+        height: 18
     }
 });

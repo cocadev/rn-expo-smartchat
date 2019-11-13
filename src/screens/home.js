@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, StyleSheet, Dimensions } from 'react-native';
+import { View, FlatList, StyleSheet, Dimensions } from 'react-native';
 import { theme } from '../common/theme';
 import { POSTS } from '../common/fakeDB';
 import { colors } from '../common/colors';
