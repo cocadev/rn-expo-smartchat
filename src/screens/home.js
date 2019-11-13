@@ -55,7 +55,7 @@ export default class HomeScreen extends Component {
                             style={styles.icon}
                             color={colors.GREY}
                         />
-                        <Image source={images.group} />
+                        <Image source={images.group} style={styles.groupImg}/>
                         <MaterialCommunityIcons
                             name="email-outline"
                             size={24}
@@ -107,4 +107,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
+    groupImg: {
+        width: 60,
+        height: 60,
+    }
 });

@@ -30,7 +30,7 @@ export default class PostCard extends Component {
                             </Text>
                         </Text>
                     </View>
-                    <Image source={images.dots} style={{ marginTop: 15 }} />
+                    <Image source={images.dots} style={styles.dotImg} />
                 </View>
                 <View style={{ marginLeft: 47 }}>
                     {
@@ -248,5 +248,10 @@ const styles = StyleSheet.create({
         fontSize: 24,
         lineHeight: 25,
         fontFamily: 'Montserrat-Bold',
+    },
+    dotImg: {
+        marginTop: 15,
+        width: 20,
+        height: 5
     }
 });

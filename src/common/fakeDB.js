@@ -6,7 +6,7 @@ export const POSTS = [
         description: 'Check out my new photoshoot!',
         responses: 34,
         fav: true,
-        avatar: 'https://i.pinimg.com/originals/6b/d2/20/6bd220687b3744171973406b81e4b334.jpg',
+        avatar: 'https://randomuser.me/api/portraits/med/men/52.jpg',
         photogroup: [
             'https://lumiere-a.akamaihd.net/v1/images/h_princess_rapunzel_mobile_v3_c0800dfd.jpeg',
             'https://re-how.net/wp-content/uploads/2019/07/d44795-2-382733-0.jpg',
