@@ -15,15 +15,19 @@ export default class HomeScreen extends Component {
         <View style={styles.row} key={index}>
             <View style={{ flexDirection: 'row' }}>
                 <Image source={{ uri: item.avatar }} style={styles.avatar} />
-                <View style={{ flex: 1, marginLeft: p(10)}}>
+                <View style={{ flex: 1, marginLeft: p(10) }}>
                     <Text style={styles.titleText}>{item.username}</Text>
                     <Text style={styles.timeText}>{item.timeago}</Text>
                 </View>
-                <Ionicons name="ios-more" size={p(18)} style={styles.icon} color={colors.GREY} />
+                <Ionicons name="ios-more" size={p(18)} style={[styles.icon, { marginRight: p(3)}]} color={colors.G999} />
             </View>
-            <View style={{ marginLeft: p(40)}}>
-               <Text style={styles.normalText}>{item.description}</Text>
-
+            <View style={{ marginLeft: p(40) }}>
+                <Text style={styles.normalText}>{item.description}</Text>
+                <View style={{ flexDirection: 'row', alignItems:'center'}}>
+                    <MaterialCommunityIcons name="message-reply" size={p(15)} style={styles.icon} color={colors.G999} />
+                    <Text style={styles.greyText}>{item.responses} Responses</Text>
+                    <MaterialCommunityIcons name="crown" size={p(18)} style={styles.icon} color={colors.YELLOW} />
+                </View>
             </View>
         </View>
     )
@@ -44,13 +48,13 @@ export default class HomeScreen extends Component {
                     style={styles.gradientView}
                 >
                     <View style={styles.iconView}>
-                        <MaterialCommunityIcons name="home-outline" size={p(18)} style={styles.icon} color={colors.LIGHTGREY} />
-                        <MaterialCommunityIcons name="bell-ring-outline" size={p(18)} style={styles.icon} color={colors.LIGHTGREY} />
+                        <MaterialCommunityIcons name="home-outline" size={p(18)} style={styles.icon} color={colors.G999} />
+                        <MaterialCommunityIcons name="bell-ring-outline" size={p(18)} style={styles.icon} color={colors.G999} />
                         <View style={styles.roundBtn}>
                             <MaterialCommunityIcons name="plus" size={p(22)} style={styles.icon} color={colors.WHITE} />
                         </View>
-                        <MaterialCommunityIcons name="email-outline" size={p(18)} style={styles.icon} color={colors.LIGHTGREY} />
-                        <EvilIcons name="user" size={p(20)} style={styles.icon} color={colors.LIGHTGREY} />
+                        <MaterialCommunityIcons name="email-outline" size={p(18)} style={styles.icon} color={colors.G999} />
+                        <EvilIcons name="user" size={p(20)} style={styles.icon} color={colors.G999} />
                     </View>
                 </LinearGradient>
             </View>
@@ -96,7 +100,7 @@ const styles = StyleSheet.create({
     roundBtn: {
         width: p(40),
         height: p(40),
-        borderRadius: p(20 ),
+        borderRadius: p(20),
         backgroundColor: colors.SKY,
         justifyContent: 'center',
         alignItems: 'center'
@@ -108,10 +112,16 @@ const styles = StyleSheet.create({
     timeText: {
         fontSize: p(9),
         fontFamily: 'Montserrat-Regular',
-        color: colors.LIGHTGREY
+        color: colors.G999
     },
     normalText: {
         fontSize: p(11),
         fontFamily: 'Montserrat-Regular',
+    },
+    greyText: {
+        color: colors.G999,
+        fontSize: p(10),
+        marginLeft: p(3),
+        flex: 1
     }
 });
