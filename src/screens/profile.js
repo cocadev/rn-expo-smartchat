@@ -4,13 +4,12 @@ import { Ionicons } from '@expo/vector-icons';
 import { p } from '../common/normalize';
 import { colors } from '../common/colors';
 
-export default class ProfileScreen extends Component {
+export default class Profile extends Component {
     render() {
-        const { title } = this.props;
         return (
             <View style={styles.container}>
                <Ionicons name="md-settings" size={p(18)} style={styles.icon}/>
-               <Text style={styles.text}> {title} </Text>
+               <Text style={styles.text}> App </Text>
                <Ionicons name="md-send" size={p(18)} style={styles.icon}/>
             </View>
         );

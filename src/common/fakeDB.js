@@ -1,4 +1,4 @@
-export const MESSAGES = [
+export const POSTS = [
     {
         username: 'Miranda West',
         timeago: '12min ago',
