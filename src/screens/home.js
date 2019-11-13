@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, StyleSheet, Dimensions, Image } from 'react-native';
+import { View, Text, FlatList, StyleSheet, Dimensions } from 'react-native';
 import { theme } from '../common/theme';
 import { POSTS } from '../common/fakeDB';
 import { colors } from '../common/colors';
 import { p } from '../common/normalize';
 import { LinearGradient } from 'expo-linear-gradient';
-import { MaterialCommunityIcons, EvilIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, EvilIcons, Ionicons } from '@expo/vector-icons';
 import Header from '../components/header';
 import PostCard from '../components/postCard';
 
@@ -13,12 +13,16 @@ const width = Dimensions.get('window').width
 
 export default class HomeScreen extends Component {
     _renderItem = ({ item, index }) => (
-       <PostCard item={item} index={index}/>
+        <PostCard item={item} index={index} />
     )
     render() {
         return (
             <View style={theme.container}>
-                <Header />
+                <Header
+                    title={'App'}
+                    leftElement={(<Ionicons name="md-settings" size={p(18)} />)}
+                    rightElement={(<Ionicons name="md-send" size={p(18)} />)}
+                />
                 <FlatList
                     style={{ backgroundColor: '#fff' }}
                     data={POSTS}
@@ -33,13 +37,38 @@ export default class HomeScreen extends Component {
                     style={styles.gradientView}
                 >
                     <View style={styles.iconView}>
-                        <MaterialCommunityIcons name="home-outline" size={p(18)} style={styles.icon} color={colors.DARKGREY} />
-                        <MaterialCommunityIcons name="bell-ring-outline" size={p(18)} style={styles.icon} color={colors.DARKGREY} />
+                        <MaterialCommunityIcons
+                            name="home-outline"
+                            size={p(18)}
+                            style={styles.icon}
+                            color={colors.DARKGREY}
+                        />
+                        <MaterialCommunityIcons
+                            name="bell-ring-outline"
+                            size={p(18)}
+                            style={styles.icon}
+                            color={colors.DARKGREY}
+                        />
                         <View style={styles.roundBtn}>
-                            <MaterialCommunityIcons name="plus" size={p(22)} style={styles.icon} color={colors.WHITE} />
+                            <MaterialCommunityIcons
+                                name="plus"
+                                size={p(22)}
+                                style={styles.icon}
+                                color={colors.WHITE}
+                            />
                         </View>
-                        <MaterialCommunityIcons name="email-outline" size={p(18)} style={styles.icon} color={colors.DARKGREY} />
-                        <EvilIcons name="user" size={p(20)} style={styles.icon} color={colors.DARKGREY} />
+                        <MaterialCommunityIcons
+                            name="email-outline"
+                            size={p(18)}
+                            style={styles.icon}
+                            color={colors.DARKGREY}
+                        />
+                        <EvilIcons
+                            name="user"
+                            size={p(20)}
+                            style={styles.icon}
+                            color={colors.DARKGREY}
+                        />
                     </View>
                 </LinearGradient>
             </View>
@@ -56,7 +85,6 @@ const styles = StyleSheet.create({
         borderBottomColor: colors.GREY,
         borderBottomWidth: 4
     },
-  
     gradientView: {
         width: width,
         height: p(100),

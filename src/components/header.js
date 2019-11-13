@@ -6,12 +6,18 @@ import { colors } from '../common/colors';
 
 export default class ProfileScreen extends Component {
     render() {
-        const { title } = this.props;
+        const { title, leftElement, rightElement } = this.props;
         return (
             <View style={styles.container}>
-               <Ionicons name="md-settings" size={p(18)} style={styles.icon}/>
-               <Text style={styles.text}> {title} </Text>
-               <Ionicons name="md-send" size={p(18)} style={styles.icon}/>
+                <View style={styles.icon}>
+                    {leftElement}
+                </View>
+                <Text style={styles.text}>
+                    {title}
+                </Text>
+                <View style={styles.icon}>
+                    {rightElement}
+                </View>
             </View>
         );
     }
@@ -19,12 +25,12 @@ export default class ProfileScreen extends Component {
 
 const styles = StyleSheet.create({
     container: {
-      height: p(50),
-      alignItems: 'center',
-      paddingTop: p(12),
-      flexDirection: "row",
-      borderBottomColor: colors.GREY,
-      borderBottomWidth: 4
+        height: p(50),
+        alignItems: 'center',
+        paddingTop: p(12),
+        flexDirection: "row",
+        borderBottomColor: colors.GREY,
+        borderBottomWidth: 4
     },
     text: {
         flex: 1,
@@ -35,5 +41,4 @@ const styles = StyleSheet.create({
     icon: {
         marginHorizontal: p(8)
     }
-  });
-  
+});

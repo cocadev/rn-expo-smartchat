@@ -8,9 +8,9 @@ export default class Profile extends Component {
     render() {
         return (
             <View style={styles.container}>
-               <Ionicons name="md-settings" size={p(18)} style={styles.icon}/>
+               <Ionicons name="md-settings" size={p(18)}/>
                <Text style={styles.text}> App </Text>
-               <Ionicons name="md-send" size={p(18)} style={styles.icon}/>
+               <Ionicons name="md-send" size={p(18)}/>
             </View>
         );
     }
