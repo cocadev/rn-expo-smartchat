@@ -7,7 +7,6 @@ import SideMenu from './components/sideMenu';
 import HomeScreen from './screens/home';
 import ProfileScreen from './screens/profile';
 
-
 const width = Dimensions.get('window').width
 
 export default class Routers extends PureComponent {
@@ -27,9 +26,7 @@ export default class Routers extends PureComponent {
       'Montserrat-Light': require('../assets/fonts/Montserrat-Light.ttf'),
       'Montserrat-Regular': require('../assets/fonts/Montserrat-Regular.ttf'),
       'Montserrat-Medium': require('../assets/fonts/Montserrat-Medium.ttf'),
-
     });
-    console.log('fonts loaded!');
     this.setState({ fontLoaded: true });
   }
   render() {
@@ -41,9 +38,7 @@ export default class Routers extends PureComponent {
         {this.state.fontLoaded == true ?
 
           <Router>
-            
             <Scene>
-
               <Drawer
                 hideNavBar
                 initial={false}
@@ -52,10 +47,9 @@ export default class Routers extends PureComponent {
                 drawerWidth={width/1.2}
                 drawerPosition="left"
               >
-
                 <Scene key="home" component={HomeScreen} hideNavBar/>
-
               </Drawer>
+
               <Scene key="profile" component={ProfileScreen} hideNavBar/>
 
             </Scene>

@@ -64,7 +64,7 @@ export default class HomeScreen extends Component {
                         />
                         <EvilIcons
                             name="user"
-                            size={27}
+                            size={29}
                             style={styles.icon}
                             color={colors.GREY}
                         />
