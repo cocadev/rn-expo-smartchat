@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "smartchat",
-    "slug": "smartchat",
+    "name": "smartchat-1",
+    "slug": "smartchat-1",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
@@ -25,6 +25,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": ""
   }
 }
