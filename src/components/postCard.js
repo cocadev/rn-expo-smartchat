@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { p } from '../common/normalize';
 import { colors } from '../common/colors';
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
+import { Actions } from 'react-native-router-flux';
 
 export default class PostCard extends Component {
     render() {
@@ -10,10 +11,12 @@ export default class PostCard extends Component {
         return (
             <View style={styles.row}>
                 <View style={{ flexDirection: 'row' }}>
-                    <Image
-                        source={{ uri: item.avatar }}
-                        style={styles.avatar}
-                    />
+                    <TouchableOpacity onPress={this.props.onGoToProfile}>
+                        <Image
+                            source={{ uri: item.avatar }}
+                            style={styles.avatar}
+                        />
+                    </TouchableOpacity>
                     <View style={{ flex: 1, marginLeft: p(10) }}>
                         <Text style={styles.titleText}>
                             {item.username}

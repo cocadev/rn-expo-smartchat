@@ -54,9 +54,10 @@ export default class Routers extends PureComponent {
               >
 
                 <Scene key="home" component={HomeScreen} hideNavBar/>
-                <Scene key="profile" component={ProfileScreen} hideNavBar/>
 
               </Drawer>
+              <Scene key="profile" component={ProfileScreen} hideNavBar/>
+
             </Scene>
           </Router>
           : null}

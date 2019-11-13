@@ -6,6 +6,7 @@ import { colors } from '../common/colors';
 import { p } from '../common/normalize';
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons, EvilIcons, Ionicons } from '@expo/vector-icons';
+import { Actions } from 'react-native-router-flux';
 import Header from '../components/header';
 import PostCard from '../components/postCard';
 
@@ -13,7 +14,11 @@ const width = Dimensions.get('window').width
 
 export default class HomeScreen extends Component {
     _renderItem = ({ item, index }) => (
-        <PostCard item={item} index={index} />
+        <PostCard 
+            item={item} 
+            index={index}
+            onGoToProfile={()=>Actions.profile({item})}
+        />
     )
     render() {
         return (
