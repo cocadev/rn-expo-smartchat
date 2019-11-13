@@ -52,6 +52,15 @@ export default class PostCard extends Component {
                         />
                     }
                     {
+                        item.website && item.website.title &&
+                        <View style={styles.website}>
+                            <Image source={{ uri: item.website.image}} style={styles.webImg}/>
+                            <Text style={styles.webTitle}>{item.website.title}</Text>
+                            <Text style={styles.webContent}>{item.website.content}</Text>
+                            <Text style={styles.webUrl}>{item.website.url}</Text>
+                        </View>
+                    }
+                    {
                         item.photogroup &&
                         <View style={{ flexDirection: 'row', marginTop: 17 }}>
                             <View style={{ flex: 2, marginRight: 0 }}>
@@ -170,5 +179,44 @@ const styles = StyleSheet.create({
         marginTop: 14.25,
         paddingHorizontal: 24,
         paddingTop: 32
+    },
+    website: {
+        height: 308,
+        width: "100%",
+        marginTop: 12,
+        padding: 7.5,
+        borderWidth: 1,
+        borderColor: colors.GREY0,	
+        borderRadius: 20,
+        backgroundColor: colors.WHITE
+    },
+    webImg: {
+        width: '100%',
+        height: 168,
+        borderTopLeftRadius: 18,
+        borderTopRightRadius: 18
+    },
+    webTitle: {
+        color: colors.DARKBLUE,
+        fontSize: 18,
+        lineHeight: 27,
+        fontFamily: 'Montserrat-Bold',
+        marginLeft: 6,
+        marginTop: 11
+    },
+    webContent: {
+        color: colors.LIGHTDARK,
+        fontSize: 13,
+        lineHeight: 18,
+        fontFamily: 'Montserrat-Light',
+        marginLeft: 6,
+        marginVertical: 10
+    },
+    webUrl: {
+        color: colors.LIGHTDARK,
+        fontSize: 11,
+        lineHeight: 17,
+        fontFamily: 'Montserrat-Light',
+        marginLeft: 6,
     }
 });
