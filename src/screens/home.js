@@ -14,19 +14,59 @@ export default class HomeScreen extends Component {
     _renderItem = ({ item, index }) => (
         <View style={styles.row} key={index}>
             <View style={{ flexDirection: 'row' }}>
-                <Image source={{ uri: item.avatar }} style={styles.avatar} />
+                <Image 
+                    source={{ uri: item.avatar }} 
+                    style={styles.avatar} 
+                />
                 <View style={{ flex: 1, marginLeft: p(10) }}>
-                    <Text style={styles.titleText}>{item.username}</Text>
-                    <Text style={styles.timeText}>{item.timeago}</Text>
+                    <Text style={styles.titleText}>
+                        {item.username}
+                    </Text>
+                    <Text style={styles.timeText}>
+                        {item.timeago}
+                        {item.group && ' in'}
+                        <Text style={[styles.timeText, { color: colors.SKY }]}> 
+                            {item.group}
+                        </Text>
+                    </Text>
                 </View>
-                <Ionicons name="ios-more" size={p(18)} style={[styles.icon, { marginRight: p(3)}]} color={colors.G999} />
+                <Ionicons 
+                    name="ios-more" 
+                    size={p(18)} 
+                    style={[styles.icon, { marginRight: p(3) }]} 
+                    color={colors.DARKGREY} 
+                />
             </View>
             <View style={{ marginLeft: p(40) }}>
-                <Text style={styles.normalText}>{item.description}</Text>
-                <View style={{ flexDirection: 'row', alignItems:'center'}}>
-                    <MaterialCommunityIcons name="message-reply" size={p(15)} style={styles.icon} color={colors.G999} />
-                    <Text style={styles.greyText}>{item.responses} Responses</Text>
-                    <MaterialCommunityIcons name="crown" size={p(18)} style={styles.icon} color={colors.YELLOW} />
+                {
+                    item.description &&
+                    <Text style={styles.normalText}>
+                        {item.description}
+                    </Text>
+                }
+                {
+                    item.photo &&
+                    <Image
+                        source={{ uri: item.photo }}
+                        style={styles.photo}
+                    />
+                }
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <MaterialCommunityIcons
+                        name="message-reply"
+                        size={p(15)}
+                        style={styles.icon}
+                        color={colors.DARKGREY}
+                    />
+                    <Text style={styles.greyText}>
+                        {item.responses} Responses
+                    </Text>
+                    <MaterialCommunityIcons
+                        name="crown"
+                        size={p(18)}
+                        style={styles.icon}
+                        color={item.fav ? colors.YELLOW : colors.DARKGREY}
+                    />
                 </View>
             </View>
         </View>
@@ -41,6 +81,7 @@ export default class HomeScreen extends Component {
                     keyExtractor={(item, i) => String(i)}
                     renderItem={this._renderItem}
                     numColumns={1}
+                    ListFooterComponent={<View style={{ height: p(80) }} />}
                 />
                 <LinearGradient
                     colors={['transparent', colors.PURPLE]}
@@ -48,13 +89,13 @@ export default class HomeScreen extends Component {
                     style={styles.gradientView}
                 >
                     <View style={styles.iconView}>
-                        <MaterialCommunityIcons name="home-outline" size={p(18)} style={styles.icon} color={colors.G999} />
-                        <MaterialCommunityIcons name="bell-ring-outline" size={p(18)} style={styles.icon} color={colors.G999} />
+                        <MaterialCommunityIcons name="home-outline" size={p(18)} style={styles.icon} color={colors.DARKGREY} />
+                        <MaterialCommunityIcons name="bell-ring-outline" size={p(18)} style={styles.icon} color={colors.DARKGREY} />
                         <View style={styles.roundBtn}>
                             <MaterialCommunityIcons name="plus" size={p(22)} style={styles.icon} color={colors.WHITE} />
                         </View>
-                        <MaterialCommunityIcons name="email-outline" size={p(18)} style={styles.icon} color={colors.G999} />
-                        <EvilIcons name="user" size={p(20)} style={styles.icon} color={colors.G999} />
+                        <MaterialCommunityIcons name="email-outline" size={p(18)} style={styles.icon} color={colors.DARKGREY} />
+                        <EvilIcons name="user" size={p(20)} style={styles.icon} color={colors.DARKGREY} />
                     </View>
                 </LinearGradient>
             </View>
@@ -112,16 +153,24 @@ const styles = StyleSheet.create({
     timeText: {
         fontSize: p(9),
         fontFamily: 'Montserrat-Regular',
-        color: colors.G999
+        color: colors.DARKGREY
     },
     normalText: {
         fontSize: p(11),
         fontFamily: 'Montserrat-Regular',
     },
     greyText: {
-        color: colors.G999,
+        color: colors.DARKGREY,
         fontSize: p(10),
         marginLeft: p(3),
         flex: 1
+    },
+    photo: {
+        width: '100%',
+        height: p(140),
+        borderRadius: p(12),
+        marginVertical: p(6),
+        backgroundColor: colors.DARKGREY,
+        resizeMode: 'cover'
     }
 });
