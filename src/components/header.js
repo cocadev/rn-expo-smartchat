@@ -49,6 +49,6 @@ const styles = StyleSheet.create({
     },
     icon: {
         marginHorizontal: 15,
-        width: 16
+        width: 19
     }
 });

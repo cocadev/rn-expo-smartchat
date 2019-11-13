@@ -57,7 +57,9 @@ export default class PostCard extends Component {
                     {
                         item.website && item.website.title &&
                         <View style={styles.website}>
-                            <Image source={{ uri: item.website.image}} style={styles.webImg}/>
+                            <View style={styles.imageContainerIOS}>
+                                <Image source={{ uri: item.website.image}} style={styles.webImg}/>
+                            </View>
                             <Text style={styles.webTitle}>{item.website.title}</Text>
                             <Text style={[styles.webContent, { marginVertical: 10, marginLeft: 6}]}>{item.website.content}</Text>
                             <Text style={styles.webUrl}>{item.website.url}</Text>
@@ -253,5 +255,12 @@ const styles = StyleSheet.create({
         marginTop: 15,
         width: 20,
         height: 5
+    },
+    imageContainerIOS: {
+        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 0,
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        overflow: 'hidden',
     }
 });
