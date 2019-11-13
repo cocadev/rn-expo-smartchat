@@ -36,6 +36,8 @@ export default class PostCard extends Component {
                         item.description &&
                         <Text style={styles.normalText}>
                             {item.description}
+                            <Text style={{ fontFamily: 'Montserrat-Bold'}}>{item.cateogry && item.cateogry.slug && item.cateogry.slug}</Text>
+                            <Text>{'!'}</Text>
                         </Text>
                     }
                     {
@@ -56,7 +58,7 @@ export default class PostCard extends Component {
                         <View style={styles.website}>
                             <Image source={{ uri: item.website.image}} style={styles.webImg}/>
                             <Text style={styles.webTitle}>{item.website.title}</Text>
-                            <Text style={styles.webContent}>{item.website.content}</Text>
+                            <Text style={[styles.webContent, { marginVertical: 10, marginLeft: 6}]}>{item.website.content}</Text>
                             <Text style={styles.webUrl}>{item.website.url}</Text>
                         </View>
                     }
@@ -78,6 +80,17 @@ export default class PostCard extends Component {
                                     source={{ uri: item.photogroup[2] }}
                                     style={styles.photo2}
                                 />
+                            </View>
+                        </View>
+                    }
+                    {
+                        item.cateogry && item.cateogry.slug &&
+                        <View style={{ flexDirection: 'row', marginTop: 16}}>
+                            <Image source={{ uri: item.cateogry.image}} style={styles.cateogryImg}/>
+                            <View style={{ marginLeft: 11, width: 200}}>
+                                <Text style={styles.theText}>The</Text>
+                                <Text style={styles.cateogryTitle}>{item.cateogry.slug}</Text>
+                                <Text style={styles.webContent}>{item.cateogry.content}</Text>
                             </View>
                         </View>
                     }
@@ -208,9 +221,7 @@ const styles = StyleSheet.create({
         color: colors.LIGHTDARK,
         fontSize: 13,
         lineHeight: 18,
-        fontFamily: 'Montserrat-Light',
-        marginLeft: 6,
-        marginVertical: 10
+        fontFamily: 'Montserrat-Light'
     },
     webUrl: {
         color: colors.LIGHTDARK,
@@ -218,5 +229,23 @@ const styles = StyleSheet.create({
         lineHeight: 17,
         fontFamily: 'Montserrat-Light',
         marginLeft: 6,
+    },
+    cateogryImg: {
+        width: 78,
+        height: 78,
+        borderRadius: 39,
+        borderWidth: 1,
+        borderColor: colors.GREYA
+    },
+    theText: {
+        color: colors.GREYA,
+        fontSize: 14,
+        lineHeight: 15,
+        fontFamily: 'Montserrat-Regular',
+    },
+    cateogryTitle: {
+        fontSize: 24,
+        lineHeight: 25,
+        fontFamily: 'Montserrat-Bold',
     }
 });

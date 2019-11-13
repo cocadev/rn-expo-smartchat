@@ -18,10 +18,15 @@ export const POSTS = [
         username: 'Name',
         timeago: '12min ago',
         group: 'NBA',
-        description: 'Check Carley\'s quiz results: Chief!',
+        description: 'Check Carley\'s quiz results: ',
         responses: 30,
         fav: false,
-        avatar: 'https://answersafrica.com/wp-content/uploads/2014/03/1522669710-3227-Brenda-Wairimu.png'
+        avatar: 'https://answersafrica.com/wp-content/uploads/2014/03/1522669710-3227-Brenda-Wairimu.png',
+        cateogry: {
+            slug: 'Chief',
+            image: 'https://previews.123rf.com/images/fargon/fargon1612/fargon161200017/69112770-cartoon-indian-soldier-stands-guard-with-a-rifle-in-his-hand.jpg',
+            content: 'The Rational ones possess a keen mental acuity.'
+        }
     },
     {
         username: 'Miranda West',
@@ -44,7 +49,7 @@ export const POSTS = [
         responses: 5,
         fav: true,
         avatar: 'https://i.pinimg.com/originals/6b/d2/20/6bd220687b3744171973406b81e4b334.jpg',
-        notice: 'I \'m soooo proud of my Toronto Raptors!!! \n\nLet\'s go Raptors, Let\'s go!'
+        notice: 'I \'m soooo proud of my Toronto Raptors!!! \n\nLet\'s go Raptors, Let\'s go!',
     },
     {
         username: 'Name',
