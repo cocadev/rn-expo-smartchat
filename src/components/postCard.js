@@ -4,6 +4,7 @@ import { p } from '../common/normalize';
 import { colors } from '../common/colors';
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import { Actions } from 'react-native-router-flux';
+import { images } from '../common/images';
 
 export default class PostCard extends Component {
     render() {
@@ -29,12 +30,7 @@ export default class PostCard extends Component {
                             </Text>
                         </Text>
                     </View>
-                    <Ionicons
-                        name="ios-more"
-                        size={p(18)}
-                        style={[styles.icon, { marginRight: p(3) }]}
-                        color={colors.DARKGREY}
-                    />
+                    <Image source={images.dots} style={{ marginTop: 15}}/>
                 </View>
                 <View style={{ marginLeft: p(40) }}>
                     {
@@ -96,28 +92,33 @@ export default class PostCard extends Component {
 
 const styles = StyleSheet.create({
     row: {
-        paddingVertical: p(12),
-        paddingHorizontal: p(8),
-        borderBottomWidth: 4,
+        paddingVertical: 12,
+        paddingRight: 18,
+        paddingLeft: 15,
+        borderBottomWidth: 2,
         borderBottomColor: colors.GREY
     },
     avatar: {
-        width: p(30),
-        height: p(30),
-        borderRadius: p(16)
+        width: 36,
+        height: 36,
+        borderRadius: 18
     },
     titleText: {
-        fontSize: p(11),
-        fontFamily: 'Montserrat-Medium'
+        fontSize: 17,
+        fontFamily: 'Montserrat-Medium',
+        lineHeight: 22
     },
     timeText: {
-        fontSize: p(9),
+        fontSize: 12,
         fontFamily: 'Montserrat-Regular',
-        color: colors.DARKGREY
+        color: colors.DARKGREY,
+        lineHeight: 16
     },
     normalText: {
-        fontSize: p(11),
+        fontSize: 15,
         fontFamily: 'Montserrat-Regular',
+        lineHeight: 20,
+        marginTop: 10
     },
     greyText: {
         color: colors.DARKGREY,

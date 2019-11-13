@@ -34,21 +34,21 @@ export default class ProfileScreen extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        height: p(50),
+        height: 80,
         alignItems: 'center',
-        paddingTop: p(12),
+        paddingTop: 24,
         flexDirection: "row",
         borderBottomColor: colors.GREY,
-        borderBottomWidth: 4
+        borderBottomWidth: 2
     },
     text: {
         flex: 1,
         textAlign: 'center',
-        fontSize: p(16),
+        fontSize: 24,
         fontFamily: 'Montserrat-Bold'
     },
     icon: {
-        marginHorizontal: p(8),
-        width: p(16)
+        marginHorizontal: 15,
+        width: 16
     }
 });
