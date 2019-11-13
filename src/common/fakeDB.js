@@ -6,7 +6,13 @@ export const MESSAGES = [
         description: 'Check out my new photoshoot!',
         responses: 34,
         fav: true,
-        avatar: 'https://i.pinimg.com/originals/6b/d2/20/6bd220687b3744171973406b81e4b334.jpg'
+        avatar: 'https://i.pinimg.com/originals/6b/d2/20/6bd220687b3744171973406b81e4b334.jpg',
+        photogroup: [
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjgjNsQxiJXE3_MrmkF-wJQPKXAnQP2VdCnFSMr3M2rafKelGK&s',
+            'https://re-how.net/wp-content/uploads/2019/07/d44795-2-382733-0.jpg',
+            'https://i0.wp.com/www.piratesandprincesses.net/wp-content/uploads/2019/11/Pac-Man-in-Disney-Tsum-Tsum.png?fit=1000%2C579&ssl=1',
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjgjNsQxiJXE3_MrmkF-wJQPKXAnQP2VdCnFSMr3M2rafKelGK&s'
+        ]
     },
     {
         username: 'Name',

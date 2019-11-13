@@ -14,9 +14,9 @@ export default class HomeScreen extends Component {
     _renderItem = ({ item, index }) => (
         <View style={styles.row} key={index}>
             <View style={{ flexDirection: 'row' }}>
-                <Image 
-                    source={{ uri: item.avatar }} 
-                    style={styles.avatar} 
+                <Image
+                    source={{ uri: item.avatar }}
+                    style={styles.avatar}
                 />
                 <View style={{ flex: 1, marginLeft: p(10) }}>
                     <Text style={styles.titleText}>
@@ -25,16 +25,16 @@ export default class HomeScreen extends Component {
                     <Text style={styles.timeText}>
                         {item.timeago}
                         {item.group && ' in'}
-                        <Text style={[styles.timeText, { color: colors.SKY }]}> 
+                        <Text style={[styles.timeText, { color: colors.SKY }]}>
                             {item.group}
                         </Text>
                     </Text>
                 </View>
-                <Ionicons 
-                    name="ios-more" 
-                    size={p(18)} 
-                    style={[styles.icon, { marginRight: p(3) }]} 
-                    color={colors.DARKGREY} 
+                <Ionicons
+                    name="ios-more"
+                    size={p(18)}
+                    style={[styles.icon, { marginRight: p(3) }]}
+                    color={colors.DARKGREY}
                 />
             </View>
             <View style={{ marginLeft: p(40) }}>
@@ -50,6 +50,27 @@ export default class HomeScreen extends Component {
                         source={{ uri: item.photo }}
                         style={styles.photo}
                     />
+                }
+                {
+                    item.photogroup &&
+                    <View style={{ flexDirection: 'row'}}>
+                        <View style={{ flex: 2, marginRight: p(6) }}>
+                            <Image
+                                source={{ uri: item.photogroup[0] }}
+                                style={styles.photo}
+                            />
+                        </View>
+                        <View style={{ flex: 1, marginLeft: p(6) }}>
+                            <Image
+                                source={{ uri: item.photogroup[1] }}
+                                style={[styles.photo, { height: p(65)}]}
+                            />
+                            <Image
+                                source={{ uri: item.photogroup[2] }}
+                                style={[styles.photo, { height: p(65)}]}
+                            />
+                        </View>
+                    </View>
                 }
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <MaterialCommunityIcons
