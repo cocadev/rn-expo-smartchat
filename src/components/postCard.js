@@ -31,12 +31,18 @@ export default class PostCard extends Component {
                     </View>
                     <Image source={images.dots} style={{ marginTop: 15 }} />
                 </View>
-                <View style={{ marginLeft: 40 }}>
+                <View style={{ marginLeft: 47 }}>
                     {
                         item.description &&
                         <Text style={styles.normalText}>
                             {item.description}
                         </Text>
+                    }
+                    {
+                        item.notice &&
+                        <View style={styles.notice}>
+                            <Text style={styles.noticeText}>{item.notice}</Text>
+                        </View>
                     }
                     {
                         item.photo &&
@@ -48,13 +54,13 @@ export default class PostCard extends Component {
                     {
                         item.photogroup &&
                         <View style={{ flexDirection: 'row', marginTop: 17 }}>
-                            <View style={{ marginRight: 0 }}>
+                            <View style={{ flex: 2, marginRight: 0 }}>
                                 <Image
                                     source={{ uri: item.photogroup[0] }}
                                     style={styles.photo}
                                 />
                             </View>
-                            <View style={{ marginLeft: 7 }}>
+                            <View style={{ flex: 1, marginLeft: 7 }}>
                                 <Image
                                     source={{ uri: item.photogroup[1] }}
                                     style={styles.photo2}
@@ -124,16 +130,20 @@ const styles = StyleSheet.create({
         marginVertical: 14,
         flex: 1
     },
+    noticeText: {
+        color: colors.WHITE,
+        fontSize: 20,
+        fontFamily: 'Montserrat-Bold'
+    },
     photo: {
-        width: 196,
+        width: "100%",
         height: 155,
         borderRadius: 20,
-        // marginTop: 17,
         backgroundColor: colors.GREY7,
         resizeMode: 'cover'
     },
     photo2: {
-        width: 93,
+        width: "100%",
         height: 74,
         borderRadius: 20,
         marginBottom: 6,
@@ -145,12 +155,20 @@ const styles = StyleSheet.create({
         height: 230,
         marginTop: 14.25,
         borderRadius: 20,
-        // marginTop: 17,
         backgroundColor: colors.GREY7,
         resizeMode: 'cover'
     },
     chatImg: {
         width: 18,
         height: 18
+    },
+    notice: {
+        height: 230,
+        width: '100%',
+        backgroundColor: colors.GREEN,
+        borderRadius: 20,
+        marginTop: 14.25,
+        paddingHorizontal: 24,
+        paddingTop: 32
     }
 });

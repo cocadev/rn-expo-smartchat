@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, FlatList, StyleSheet, Dimensions } from 'react-native';
+import { View, FlatList, StyleSheet, Dimensions, Image } from 'react-native';
 import { theme } from '../common/theme';
 import { POSTS } from '../common/fakeDB';
 import { colors } from '../common/colors';
@@ -9,6 +9,7 @@ import { MaterialCommunityIcons, EvilIcons, Ionicons } from '@expo/vector-icons'
 import { Actions } from 'react-native-router-flux';
 import Header from '../components/header';
 import PostCard from '../components/postCard';
+import { images } from '../common/images';
 
 const width = Dimensions.get('window').width
 
@@ -44,35 +45,28 @@ export default class HomeScreen extends Component {
                     <View style={styles.iconView}>
                         <MaterialCommunityIcons
                             name="home-outline"
-                            size={p(18)}
+                            size={24}
                             style={styles.icon}
-                            color={colors.DARKGREY}
+                            color={colors.GREY}
                         />
                         <MaterialCommunityIcons
                             name="bell-ring-outline"
-                            size={p(18)}
+                            size={24}
                             style={styles.icon}
-                            color={colors.DARKGREY}
+                            color={colors.GREY}
                         />
-                        <View style={styles.roundBtn}>
-                            <MaterialCommunityIcons
-                                name="plus"
-                                size={p(22)}
-                                style={styles.icon}
-                                color={colors.WHITE}
-                            />
-                        </View>
+                        <Image source={images.group} />
                         <MaterialCommunityIcons
                             name="email-outline"
-                            size={p(18)}
+                            size={24}
                             style={styles.icon}
-                            color={colors.DARKGREY}
+                            color={colors.GREY}
                         />
                         <EvilIcons
                             name="user"
-                            size={p(20)}
+                            size={27}
                             style={styles.icon}
-                            color={colors.DARKGREY}
+                            color={colors.GREY}
                         />
                     </View>
                 </LinearGradient>

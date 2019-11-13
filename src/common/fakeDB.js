@@ -30,21 +30,25 @@ export const POSTS = [
         description: 'Check out my new photoshoot!',
         responses: 2,
         fav: true,
-        avatar: 'https://i.pinimg.com/originals/6b/d2/20/6bd220687b3744171973406b81e4b334.jpg'
+        avatar: 'https://i.pinimg.com/originals/6b/d2/20/6bd220687b3744171973406b81e4b334.jpg',
+        website: {
+            image: 'https://images2.minutemediacdn.com/image/upload/c_crop,h_1126,w_2000,x_0,y_181/f_auto,q_auto,w_1100/v1554932288/shape/mentalfloss/12531-istock-637790866.jpg',
+            title: 'Pow Wow Cafe',
+            content: 'Pow Wow Cafe is chef and restaur Shawn Adler\'s sixth project, and ...',
+            url: 'http://www.blogto.com/'
+        }
     },
     {
         username: 'Miranda West',
         timeago: '12min ago',
-        group: '',
-        description: 'Check out my new photoshoot!',
-        responses: 34,
+        responses: 5,
         fav: true,
-        avatar: 'https://i.pinimg.com/originals/6b/d2/20/6bd220687b3744171973406b81e4b334.jpg'
+        avatar: 'https://i.pinimg.com/originals/6b/d2/20/6bd220687b3744171973406b81e4b334.jpg',
+        notice: 'I \'m soooo proud of my Toronto Raptors!!! \n\nLet\'s go Raptors, Let\'s go!'
     },
     {
         username: 'Name',
         timeago: '12min ago',
-        group: '',
         description: 'Check Carley\'s quiz results: Chief!',
         responses: 34,
         fav: false,
@@ -54,7 +58,7 @@ export const POSTS = [
         username: 'Miranda West',
         timeago: 'Last online 3 mins ago',
         group: 'Food',
-        description: 'Check out my new photoshoot!',
+        description: 'Hey anyone been here? What do you think of this place as a first date?',
         responses: 34,
         fav: true,
         avatar: 'https://i.pinimg.com/originals/6b/d2/20/6bd220687b3744171973406b81e4b334.jpg'
@@ -62,7 +66,6 @@ export const POSTS = [
     {
         username: 'Miranda West',
         timeago: '12min ago',
-        group: '',
         description: 'Check out my new photoshoot!',
         responses: 34,
         fav: true,
@@ -89,7 +92,6 @@ export const POSTS = [
     {
         username: 'Miranda West',
         timeago: '12min ago',
-        group: '',
         description: 'Check out my new photoshoot!',
         responses: 34,
         fav: true,
@@ -98,7 +100,6 @@ export const POSTS = [
     {
         username: 'Name',
         timeago: '12min ago',
-        group: '',
         description: 'Check Carley\'s quiz results: Chief!',
         responses: 34,
         fav: true,
@@ -116,7 +117,6 @@ export const POSTS = [
     {
         username: 'Miranda West',
         timeago: '12min ago',
-        group: '',
         description: 'Check out my new photoshoot!',
         responses: 34,
         fav: true,
@@ -125,7 +125,6 @@ export const POSTS = [
     {
         username: 'Name',
         timeago: '12min ago',
-        group: '',
         description: 'Check Carley\'s quiz results: Chief!',
         responses: 34,
         fav: true,
