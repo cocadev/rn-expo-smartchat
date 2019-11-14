@@ -119,8 +119,6 @@ const styles = StyleSheet.create({
         paddingVertical: 16,
         paddingRight: 18,
         paddingLeft: 15,
-        // borderBottomWidth: 2,
-        // borderBottomColor: colors.GREY
     },
     avatar: {
         width: 36,
