@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
         flex: 1,
         textAlign: 'center',
         fontSize: 24,
-        fontFamily: 'Poppins-Bold'
+        fontFamily: 'Poppins-Bold',
+        paddingTop: 3
     },
     icon: {
         marginHorizontal: 15,

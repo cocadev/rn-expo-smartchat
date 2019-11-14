@@ -94,6 +94,7 @@ export default class MainScreen extends React.Component {
                 renderTabBar={this.renderTabBar}
                 tabBarPosition="bottom"
                 onIndexChange={this.handleIndexChange}
+                style={{ backgroundColor: '#fff'}}
             />
         );
     }
@@ -119,15 +120,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     cateogryImg: {
-        width: 30,
-        height: 30
+        width: 24,
+        height: 24
     },
     cateogryImg2: {
-        width: 35,
-        height: 35
+        width: 28,
+        height: 28
     },
     groupImg: {
-        width: 68,
-        height: 68
+        width: 60,
+        height: 60
     }
 });

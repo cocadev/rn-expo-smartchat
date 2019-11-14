@@ -31,6 +31,7 @@ export default class HomeScreen extends Component {
                     renderItem={this._renderItem}
                     numColumns={1}
                     ListFooterComponent={<View style={{ height: p(150) }} />}
+                    pagingEnabled={true}
                 />
             </>
         );

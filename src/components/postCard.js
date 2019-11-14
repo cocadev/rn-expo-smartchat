@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { p } from '../common/normalize';
 import { colors } from '../common/colors';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { images } from '../common/images';
 import { POSTS } from '../common/fakeDB';
 
@@ -263,7 +261,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     crownImg: {
-        width: 30,
-        height: 21
+        width: 23,
+        height: 16
     }
 });

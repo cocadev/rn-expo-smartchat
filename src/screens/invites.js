@@ -7,7 +7,7 @@ export default class Invites extends Component {
     render() {
         return (
             <View style={theme.container}>
-               <Header title={'Invites People'} />
+               <Header title={'Invite People'} />
             </View>
         );
     }
