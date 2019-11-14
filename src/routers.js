@@ -5,6 +5,10 @@ import * as Font from 'expo-font';
 import SideMenu from './components/sideMenu';
 import HomeScreen from './screens/home';
 import ProfileScreen from './screens/profile';
+import UserProfile from './screens/userProfile';
+import Invites from './screens/invites';
+import Notifications from './screens/notification';
+import MainScreen from './screens/main';
 
 const width = Dimensions.get('window').width
 
@@ -38,18 +42,23 @@ export default class Routers extends PureComponent {
 
           <Router>
             <Scene>
-              <Drawer
+              {/* <Drawer
                 hideNavBar
                 initial={false}
                 key="drawerMenu"
                 contentComponent={SideMenu}
                 drawerWidth={width/1.2}
                 drawerPosition="left"
-              >
-                <Scene key="home" component={HomeScreen} hideNavBar/>
-              </Drawer>
+              /> */}
 
-              <Scene key="profile" component={ProfileScreen} hideNavBar/>
+              <Scene key="main" component={MainScreen} hideNavBar />
+
+              <Scene key="home" component={HomeScreen} hideNavBar />
+              <Scene key="notifications" component={Notifications} hideNavBar />
+              <Scene key="invites" component={Invites} hideNavBar />
+              <Scene key="userprofile" component={UserProfile} hideNavBar />
+
+              <Scene key="profile" component={ProfileScreen} hideNavBar />
 
             </Scene>
           </Router>
