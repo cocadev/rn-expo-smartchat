@@ -30,6 +30,18 @@ export default class MainScreen extends React.Component {
             index,
         });
 
+    buttonIcon(props, goto, icon, k) {
+        return (
+            <TouchableWithoutFeedback
+                onPress={() => props.jumpTo(goto)}
+            >
+                <Animated.View style={styles.item}>
+                    <Image source={icon} style={[styles.cateogryImg, this.state.index == k && styles.cateogryImg2]} />
+                </Animated.View>
+            </TouchableWithoutFeedback>
+        )
+    }
+
     renderTabBar = (props) => (
         <LinearGradient
             colors={['transparent', colors.PURPLE]}
@@ -37,21 +49,8 @@ export default class MainScreen extends React.Component {
             style={styles.gradientView}
         >
             <View style={styles.tabbar}>
-                <TouchableWithoutFeedback
-                    onPress={() => props.jumpTo("home")}
-                >
-                    <Animated.View style={styles.item}>
-                        <Image source={images.home} style={[styles.cateogryImg, this.state.index == 0 && styles.cateogryImg2]} />
-                    </Animated.View>
-                </TouchableWithoutFeedback>
-
-                <TouchableWithoutFeedback
-                    onPress={() => props.jumpTo("notifications")}
-                >
-                    <Animated.View style={styles.item}>
-                        <Image source={images.notifications} style={[styles.cateogryImg, this.state.index == 1 && styles.cateogryImg2]} />
-                    </Animated.View>
-                </TouchableWithoutFeedback>
+                {this.buttonIcon(props, "home", images.home, 0)}
+                {this.buttonIcon(props, "notifications", images.notifications, 1)}
 
                 <TouchableWithoutFeedback>
                     <Animated.View style={styles.item}>
@@ -59,21 +58,9 @@ export default class MainScreen extends React.Component {
                     </Animated.View>
                 </TouchableWithoutFeedback>
 
-                <TouchableWithoutFeedback
-                    onPress={() => props.jumpTo("invite")}
-                >
-                    <Animated.View style={styles.item}>
-                        <Image source={images.invite} style={[styles.cateogryImg, this.state.index == 2 && styles.cateogryImg2]} />
-                    </Animated.View>
-                </TouchableWithoutFeedback>
+                {this.buttonIcon(props, "invite", images.invite, 2)}
+                {this.buttonIcon(props, "profile", images.profile, 3)}
 
-                <TouchableWithoutFeedback
-                    onPress={() => props.jumpTo("profile")}
-                >
-                    <Animated.View style={styles.item}>
-                        <Image source={images.profile} style={[styles.cateogryImg, this.state.index == 3 && styles.cateogryImg2]} />
-                    </Animated.View>
-                </TouchableWithoutFeedback>
             </View>
 
         </LinearGradient>
@@ -94,7 +81,7 @@ export default class MainScreen extends React.Component {
                 renderTabBar={this.renderTabBar}
                 tabBarPosition="bottom"
                 onIndexChange={this.handleIndexChange}
-                style={{ backgroundColor: '#fff'}}
+                style={{ backgroundColor: '#fff' }}
             />
         );
     }
