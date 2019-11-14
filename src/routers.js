@@ -42,15 +42,7 @@ export default class Routers extends PureComponent {
 
           <Router>
             <Scene>
-              {/* <Drawer
-                hideNavBar
-                initial={false}
-                key="drawerMenu"
-                contentComponent={SideMenu}
-                drawerWidth={width/1.2}
-                drawerPosition="left"
-              /> */}
-
+             
               <Scene key="main" component={MainScreen} hideNavBar />
 
               <Scene key="home" component={HomeScreen} hideNavBar />
