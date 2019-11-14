@@ -32,9 +32,7 @@ export default class MainScreen extends React.Component {
 
     buttonIcon(props, goto, icon, k) {
         return (
-            <TouchableWithoutFeedback
-                onPress={() => props.jumpTo(goto)}
-            >
+            <TouchableWithoutFeedback onPress={() => props.jumpTo(goto)}>
                 <Animated.View style={styles.item}>
                     <Image source={icon} style={[styles.cateogryImg, this.state.index == k && styles.cateogryImg2]} />
                 </Animated.View>
