@@ -3,13 +3,13 @@ import * as React from 'react';
 import { View, TouchableWithoutFeedback, StyleSheet, Dimensions, Image } from 'react-native';
 import { TabView, SceneMap } from 'react-native-tab-view';
 import Animated from 'react-native-reanimated';
-import Albums from './userProfile';
-import Article from './invites';
-import Chat from './notification';
-import Contacts from './home';
+import UserProfile from './userProfile';
+import Notifications from './notification';
+import Home from './home';
 import { p } from '../common/normalize';
 import { LinearGradient } from 'expo-linear-gradient';
 import { images } from '../common/images';
+import Invites from './invites';
 
 const width = Dimensions.get('window').width
 
@@ -30,40 +30,60 @@ export default class MainScreen extends React.Component {
             index,
         });
 
-    renderItem = () => ({ route, index }) => {
-        return (
-            <View style={styles.tab} key={index}>
-                <Animated.View style={styles.item}>
-                    <Image source={route.icon} style={styles.cateogryImg} />
-                </Animated.View>
-            </View>
-        );
-    };
-
     renderTabBar = (props) => (
         <LinearGradient
             colors={['transparent', colors.PURPLE]}
             start={[1, 0]} end={[1, 1]}
             style={styles.gradientView}
         >
-            {props.navigationState.routes.map((route, index) => {
-                return (
-                    <TouchableWithoutFeedback
-                        key={route.key}
-                        onPress={() => props.jumpTo(route.key)}
-                    >
-                        {this.renderItem(props)({ route, index })}
-                    </TouchableWithoutFeedback>
-                );
-            })}
+            <View style={styles.tabbar}>
+                <TouchableWithoutFeedback
+                    onPress={() => props.jumpTo("home")}
+                >
+                    <Animated.View style={styles.item}>
+                        <Image source={images.home} style={[styles.cateogryImg, this.state.index == 0 && styles.cateogryImg2]} />
+                    </Animated.View>
+                </TouchableWithoutFeedback>
+
+                <TouchableWithoutFeedback
+                    onPress={() => props.jumpTo("notifications")}
+                >
+                    <Animated.View style={styles.item}>
+                        <Image source={images.notifications} style={[styles.cateogryImg, this.state.index == 1 && styles.cateogryImg2]} />
+                    </Animated.View>
+                </TouchableWithoutFeedback>
+
+                <TouchableWithoutFeedback>
+                    <Animated.View style={styles.item}>
+                        <Image source={images.group} style={styles.groupImg} />
+                    </Animated.View>
+                </TouchableWithoutFeedback>
+
+                <TouchableWithoutFeedback
+                    onPress={() => props.jumpTo("invite")}
+                >
+                    <Animated.View style={styles.item}>
+                        <Image source={images.invite} style={[styles.cateogryImg, this.state.index == 2 && styles.cateogryImg2]} />
+                    </Animated.View>
+                </TouchableWithoutFeedback>
+
+                <TouchableWithoutFeedback
+                    onPress={() => props.jumpTo("profile")}
+                >
+                    <Animated.View style={styles.item}>
+                        <Image source={images.profile} style={[styles.cateogryImg, this.state.index == 3 && styles.cateogryImg2]} />
+                    </Animated.View>
+                </TouchableWithoutFeedback>
+            </View>
+
         </LinearGradient>
     );
 
     renderScene = SceneMap({
-        home: Contacts,
-        notifications: Albums,
-        invite: Article,
-        profile: Chat,
+        home: Home,
+        notifications: Notifications,
+        invite: Invites,
+        profile: UserProfile,
     });
 
     render() {
@@ -80,24 +100,34 @@ export default class MainScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    tab: {
-        flex: 1,
-        alignItems: 'center',
-    },
     gradientView: {
         width: width,
         height: p(100),
         zIndex: 1,
         position: 'absolute',
         bottom: 0,
-        justifyContent: 'flex-end',
         paddingBottom: p(15),
         flexDirection: 'row',
-        justifyContent: 'space-between',
         alignItems: 'flex-end'
+    },
+    tabbar: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    item: {
+        flex: 1,
+        alignItems: 'center',
     },
     cateogryImg: {
         width: 30,
         height: 30
+    },
+    cateogryImg2: {
+        width: 35,
+        height: 35
+    },
+    groupImg: {
+        width: 68,
+        height: 68
     }
 });

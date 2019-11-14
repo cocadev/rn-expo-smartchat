@@ -10,8 +10,6 @@ import Invites from './screens/invites';
 import Notifications from './screens/notification';
 import MainScreen from './screens/main';
 
-const width = Dimensions.get('window').width
-
 export default class Routers extends PureComponent {
 
   state = {
@@ -24,11 +22,10 @@ export default class Routers extends PureComponent {
 
   async _loadAssets() {
     await Font.loadAsync({
-      'Montserrat-Black': require('../assets/fonts/Montserrat-Black.ttf'),
-      'Montserrat-Bold': require('../assets/fonts/Montserrat-Bold.ttf'),
-      'Montserrat-Light': require('../assets/fonts/Montserrat-Light.ttf'),
-      'Montserrat-Regular': require('../assets/fonts/Montserrat-Regular.ttf'),
-      'Montserrat-Medium': require('../assets/fonts/Montserrat-Medium.ttf'),
+      'Poppins-Bold': require('../assets/fonts/Poppins-Bold.ttf'),
+      'Poppins-Light': require('../assets/fonts/Poppins-Light.ttf'),
+      'Poppins-Regular': require('../assets/fonts/Poppins-Regular.ttf'),
+      'Poppins-Medium': require('../assets/fonts/Poppins-Medium.ttf'),
     });
     this.setState({ fontLoaded: true });
   }

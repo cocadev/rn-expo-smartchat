@@ -37,7 +37,7 @@ export default class PostCard extends Component {
                         item.description &&
                         <Text style={styles.normalText}>
                             {item.description}
-                            <Text style={{ fontFamily: 'Montserrat-Bold' }}>{item.cateogry && item.cateogry.slug && item.cateogry.slug}</Text>
+                            <Text style={{ fontFamily: 'Poppins-Bold' }}>{item.cateogry && item.cateogry.slug && item.cateogry.slug}</Text>
                             <Text>{'!'}</Text>
                         </Text>
                     }
@@ -131,18 +131,18 @@ const styles = StyleSheet.create({
     },
     titleText: {
         fontSize: 17,
-        fontFamily: 'Montserrat-Medium',
+        fontFamily: 'Poppins-Medium',
         lineHeight: 22
     },
     timeText: {
         fontSize: 12,
-        fontFamily: 'Montserrat-Regular',
+        fontFamily: 'Poppins-Regular',
         color: colors.DARKGREY,
         lineHeight: 16
     },
     normalText: {
         fontSize: 15,
-        fontFamily: 'Montserrat-Regular',
+        fontFamily: 'Poppins-Regular',
         lineHeight: 20,
         marginTop: 10
     },
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
     noticeText: {
         color: colors.WHITE,
         fontSize: 20,
-        fontFamily: 'Montserrat-Bold'
+        fontFamily: 'Poppins-Bold'
     },
     photo: {
         width: "100%",
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
         color: colors.DARKBLUE,
         fontSize: 18,
         lineHeight: 27,
-        fontFamily: 'Montserrat-Bold',
+        fontFamily: 'Poppins-Bold',
         marginLeft: 6,
         marginTop: 11
     },
@@ -223,13 +223,13 @@ const styles = StyleSheet.create({
         color: colors.LIGHTDARK,
         fontSize: 13,
         lineHeight: 18,
-        fontFamily: 'Montserrat-Light'
+        fontFamily: 'Poppins-Light'
     },
     webUrl: {
         color: colors.LIGHTDARK,
         fontSize: 11,
         lineHeight: 17,
-        fontFamily: 'Montserrat-Light',
+        fontFamily: 'Poppins-Light',
         marginLeft: 6,
     },
     cateogryImg: {
@@ -243,12 +243,12 @@ const styles = StyleSheet.create({
         color: colors.GREYA,
         fontSize: 14,
         lineHeight: 15,
-        fontFamily: 'Montserrat-Regular',
+        fontFamily: 'Poppins-Regular',
     },
     cateogryTitle: {
         fontSize: 24,
         lineHeight: 25,
-        fontFamily: 'Montserrat-Bold',
+        fontFamily: 'Poppins-Bold',
     },
     dotImg: {
         marginTop: 15,

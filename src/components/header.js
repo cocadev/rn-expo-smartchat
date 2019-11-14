@@ -24,7 +24,7 @@ export default class ProfileScreen extends Component {
                 <Text style={styles.text}>
                     {title}
                 </Text>
-                <View style={styles.icon}>
+                <View style={[styles.icon, { alignItems: 'flex-end' }]}>
                     {rightElement}
                 </View>
             </View>
@@ -45,10 +45,10 @@ const styles = StyleSheet.create({
         flex: 1,
         textAlign: 'center',
         fontSize: 24,
-        fontFamily: 'Montserrat-Bold'
+        fontFamily: 'Poppins-Bold'
     },
     icon: {
         marginHorizontal: 15,
-        width: 19
+        width: p(20),
     }
 });
