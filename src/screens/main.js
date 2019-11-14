@@ -30,13 +30,23 @@ export default class MainScreen extends React.Component {
             index,
         });
 
-    buttonIcon(props, goto, icon1, icon2, k) {
+    buttonIcon(props, goto, icon1, k) {
         return (
             <TouchableWithoutFeedback onPress={() => props.jumpTo(goto)}>
                 <Animated.View style={styles.item}>
                     <Image
-                        source={this.state.index == k ? icon1 : icon2}
-                        style={goto == 'notifications' ? styles.cateogryImg2 : styles.cateogryImg}
+                        source={icon1}
+                        style={[
+                            goto == 'notifications'
+                                ? styles.cateogryImg2
+                                : (
+                                    goto == 'profile'
+                                        ? styles.cateogryImg3
+                                        : styles.cateogryImg
+                                ),
+                            this.state.index !== k &&
+                            { opacity: 0.5 }
+                        ]}
                     />
                 </Animated.View>
             </TouchableWithoutFeedback>
@@ -50,8 +60,9 @@ export default class MainScreen extends React.Component {
             style={styles.gradientView}
         >
             <View style={styles.tabbar}>
-                {this.buttonIcon(props, "home", images.home1, images.home2, 0)}
-                {this.buttonIcon(props, "notifications", images.notifications1, images.notifications2, 1)}
+
+                {this.buttonIcon(props, "home", images.home, 0)}
+                {this.buttonIcon(props, "notifications", images.notifications, 1)}
 
                 <TouchableWithoutFeedback>
                     <Animated.View style={styles.item}>
@@ -59,8 +70,8 @@ export default class MainScreen extends React.Component {
                     </Animated.View>
                 </TouchableWithoutFeedback>
 
-                {this.buttonIcon(props, "invite", images.invite1, images.invite2, 2)}
-                {this.buttonIcon(props, "profile", images.profile1, images.profile2, 3)}
+                {this.buttonIcon(props, "invite", images.invite, 2)}
+                {this.buttonIcon(props, "profile", images.profile, 3)}
 
             </View>
 
@@ -91,7 +102,7 @@ export default class MainScreen extends React.Component {
 const styles = StyleSheet.create({
     gradientView: {
         width: width,
-        height: p(100),
+        height: 155,
         zIndex: 1,
         position: 'absolute',
         bottom: 0,
@@ -109,10 +120,14 @@ const styles = StyleSheet.create({
     },
     cateogryImg: {
         width: 24,
-        height: 24
+        height: 24,
     },
     cateogryImg2: {
         width: 24,
+        height: 26,
+    },
+    cateogryImg3: {
+        width: 26,
         height: 26
     },
     groupImg: {

@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
         height: 155,
         borderRadius: 20,
         backgroundColor: colors.GREY7,
-        resizeMode: 'cover'
+        resizeMode: 'cover',
     },
     photo2: {
         width: "100%",
