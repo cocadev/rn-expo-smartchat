@@ -54,7 +54,7 @@ export const POSTS = [
     {
         username: 'Kenis Ian',
         timeago: '12min ago',
-        description: 'Check Carley\'s quiz results: Chief!',
+        description: 'A kid asks his dad, "What\'s a man?" The dad says, "A man is someone who is responsible and cares for their family." The kid says, "I hope one day I can be a man just like mom!"',
         responses: 34,
         fav: false,
         avatar: 'https://randomuser.me/api/portraits/med/men/12.jpg'
@@ -91,7 +91,7 @@ export const POSTS = [
         username: 'James Cook',
         timeago: '12min ago',
         group: '',
-        description: 'Check Carley\'s quiz results: Chief!',
+        description: 'MomJunction brings to you a list of 25 short animal stories that children would love to hear. What’s best, these stories about animals come with a moral lesson too!',
         responses: 34,
         fav: true,
         avatar: 'https://randomuser.me/api/portraits/med/women/1.jpg',
@@ -114,7 +114,7 @@ export const POSTS = [
     {
         username: 'Jenny Akasha',
         timeago: '12min ago',
-        description: 'Check out my new photoshoot!',
+        description: 'Tired of the bragging of a speedy hare, a tortoise challenges it to a race. The overconfident hare accepts the competition and runs as fast as it can after the race begins. Soon it gets tired and decides to rest, thinking that there’s plenty of time to relax before tortoise can catch up with it',
         responses: 34,
         fav: true,
         avatar: 'https://randomuser.me/api/portraits/med/women/3.jpg'
