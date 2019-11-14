@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { View, FlatList, Image, Dimensions } from 'react-native';
+import { Image, Dimensions } from 'react-native';
 import { POSTS } from '../common/fakeDB';
 import { p } from '../common/normalize';
 import { Actions } from 'react-native-router-flux';
-import PostCard from '../components/postCard';
-import Header from '../components/header';
 import { Ionicons } from '@expo/vector-icons';
 import { images } from '../common/images';
 import Carousel from 'react-native-snap-carousel';
+import PostCard from '../components/postCard';
+import Header from '../components/header';
 
-const width = Dimensions.get('window').width
 const height = Dimensions.get('window').height
 
 export default class HomeScreen extends Component {

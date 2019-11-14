@@ -12,5 +12,4 @@ export const colors = {
     DARKBLUE: '#1C2E48',
     LIGHTGREY: '#B2B1D6',
     LIGHTDARK: '#6C6C6C'
-
 }
