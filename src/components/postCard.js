@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
     },
     greyText: {
         color: colors.DARKGREY,
+        fontFamily: 'Poppins-Light',
         fontSize: 13,
         lineHeight: 18,
         marginLeft: 4,

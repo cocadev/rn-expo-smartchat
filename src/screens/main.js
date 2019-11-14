@@ -18,9 +18,9 @@ export default class MainScreen extends React.Component {
     state = {
         index: 0,
         routes: [
-            { key: 'home', title: 'Home', icon: images.home },
+            { key: 'home', title: 'Home', icon1: images.home1, icon2: images.home2 },
             { key: 'notifications', title: 'Notifications', icon: images.notifications },
-            { key: 'invite', title: 'Invite', icon: images.invite },
+            { key: 'invite', title: 'Invite', icon1: images.invite1, icon2: images.invite2 },
             { key: 'profile', title: 'Profile', icon: images.profile },
         ],
     };
@@ -30,11 +30,11 @@ export default class MainScreen extends React.Component {
             index,
         });
 
-    buttonIcon(props, goto, icon, k) {
+    buttonIcon(props, goto, icon1, icon2, k) {
         return (
             <TouchableWithoutFeedback onPress={() => props.jumpTo(goto)}>
                 <Animated.View style={styles.item}>
-                    <Image source={icon} style={[styles.cateogryImg, this.state.index == k && styles.cateogryImg2]} />
+                    <Image source={this.state.index == k ? icon1 : icon2 } style={styles.cateogryImg} />
                 </Animated.View>
             </TouchableWithoutFeedback>
         )
@@ -47,8 +47,8 @@ export default class MainScreen extends React.Component {
             style={styles.gradientView}
         >
             <View style={styles.tabbar}>
-                {this.buttonIcon(props, "home", images.home, 0)}
-                {this.buttonIcon(props, "notifications", images.notifications, 1)}
+                {this.buttonIcon(props, "home", images.home1, images.home2, 0)}
+                {this.buttonIcon(props, "notifications", images.notifications, images.notifications, 1)}
 
                 <TouchableWithoutFeedback>
                     <Animated.View style={styles.item}>
@@ -56,8 +56,8 @@ export default class MainScreen extends React.Component {
                     </Animated.View>
                 </TouchableWithoutFeedback>
 
-                {this.buttonIcon(props, "invite", images.invite, 2)}
-                {this.buttonIcon(props, "profile", images.profile, 3)}
+                {this.buttonIcon(props, "invite", images.invite1, images.invite2, 2)}
+                {this.buttonIcon(props, "profile", images.profile, images.profile, 3)}
 
             </View>
 
