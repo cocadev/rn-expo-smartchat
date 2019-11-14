@@ -18,10 +18,10 @@ export default class MainScreen extends React.Component {
     state = {
         index: 0,
         routes: [
-            { key: 'home', title: 'Home', icon1: images.home1, icon2: images.home2 },
-            { key: 'notifications', title: 'Notifications', icon: images.notifications },
-            { key: 'invite', title: 'Invite', icon1: images.invite1, icon2: images.invite2 },
-            { key: 'profile', title: 'Profile', icon: images.profile },
+            { key: 'home', title: 'Home' },
+            { key: 'notifications', title: 'Notifications' },
+            { key: 'invite', title: 'Invite' },
+            { key: 'profile', title: 'Profile' },
         ],
     };
 
@@ -34,7 +34,10 @@ export default class MainScreen extends React.Component {
         return (
             <TouchableWithoutFeedback onPress={() => props.jumpTo(goto)}>
                 <Animated.View style={styles.item}>
-                    <Image source={this.state.index == k ? icon1 : icon2 } style={styles.cateogryImg} />
+                    <Image
+                        source={this.state.index == k ? icon1 : icon2}
+                        style={goto == 'notifications' ? styles.cateogryImg2 : styles.cateogryImg}
+                    />
                 </Animated.View>
             </TouchableWithoutFeedback>
         )
@@ -48,7 +51,7 @@ export default class MainScreen extends React.Component {
         >
             <View style={styles.tabbar}>
                 {this.buttonIcon(props, "home", images.home1, images.home2, 0)}
-                {this.buttonIcon(props, "notifications", images.notifications, images.notifications, 1)}
+                {this.buttonIcon(props, "notifications", images.notifications1, images.notifications2, 1)}
 
                 <TouchableWithoutFeedback>
                     <Animated.View style={styles.item}>
@@ -57,7 +60,7 @@ export default class MainScreen extends React.Component {
                 </TouchableWithoutFeedback>
 
                 {this.buttonIcon(props, "invite", images.invite1, images.invite2, 2)}
-                {this.buttonIcon(props, "profile", images.profile, images.profile, 3)}
+                {this.buttonIcon(props, "profile", images.profile1, images.profile2, 3)}
 
             </View>
 
@@ -109,8 +112,8 @@ const styles = StyleSheet.create({
         height: 24
     },
     cateogryImg2: {
-        width: 28,
-        height: 28
+        width: 24,
+        height: 26
     },
     groupImg: {
         width: 60,
