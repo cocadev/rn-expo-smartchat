@@ -1,14 +1,14 @@
-import { colors } from '../common/colors';
 import * as React from 'react';
 import { View, TouchableWithoutFeedback, StyleSheet, Dimensions, Image } from 'react-native';
 import { TabView, SceneMap } from 'react-native-tab-view';
+import { p } from '../common/normalize';
+import { LinearGradient } from 'expo-linear-gradient';
+import { images } from '../common/images';
+import { colors } from '../common/colors';
 import Animated from 'react-native-reanimated';
 import UserProfile from './userProfile';
 import Notifications from './notification';
 import Home from './home';
-import { p } from '../common/normalize';
-import { LinearGradient } from 'expo-linear-gradient';
-import { images } from '../common/images';
 import Invites from './invites';
 
 const width = Dimensions.get('window').width
