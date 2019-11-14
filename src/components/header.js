@@ -12,9 +12,9 @@ export default class ProfileScreen extends Component {
             <View style={styles.container}>
                 <View style={styles.icon}>
                     {leftElement}
-                    { 
-                        back && 
-                        <Ionicons 
+                    {
+                        back &&
+                        <Ionicons
                             name="md-arrow-back" 
                             size={p(18)}
                             onPress={()=>Actions.pop()}
