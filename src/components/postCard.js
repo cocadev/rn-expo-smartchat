@@ -10,7 +10,7 @@ export default class PostCard extends Component {
     render() {
         const { item, index } = this.props;
         return (
-            <View style={[styles.row, POSTS.length-1 == index && { borderBottomWidth: 0}]}>
+            <View style={[styles.row, POSTS.length - 1 == index && { borderBottomWidth: 0 }]}>
                 <View style={{ flexDirection: 'row' }}>
                     <TouchableOpacity onPress={this.props.onGoToProfile}>
                         <Image
@@ -37,7 +37,7 @@ export default class PostCard extends Component {
                         item.description &&
                         <Text style={styles.normalText}>
                             {item.description}
-                            <Text style={{ fontFamily: 'Montserrat-Bold'}}>{item.cateogry && item.cateogry.slug && item.cateogry.slug}</Text>
+                            <Text style={{ fontFamily: 'Montserrat-Bold' }}>{item.cateogry && item.cateogry.slug && item.cateogry.slug}</Text>
                             <Text>{'!'}</Text>
                         </Text>
                     }
@@ -58,10 +58,10 @@ export default class PostCard extends Component {
                         item.website && item.website.title &&
                         <View style={styles.website}>
                             <View style={styles.imageContainerIOS}>
-                                <Image source={{ uri: item.website.image}} style={styles.webImg}/>
+                                <Image source={{ uri: item.website.image }} style={styles.webImg} />
                             </View>
                             <Text style={styles.webTitle}>{item.website.title}</Text>
-                            <Text style={[styles.webContent, { marginVertical: 10, marginLeft: 6}]}>{item.website.content}</Text>
+                            <Text style={[styles.webContent, { marginVertical: 10, marginLeft: 6 }]}>{item.website.content}</Text>
                             <Text style={styles.webUrl}>{item.website.url}</Text>
                         </View>
                     }
@@ -88,9 +88,9 @@ export default class PostCard extends Component {
                     }
                     {
                         item.cateogry && item.cateogry.slug &&
-                        <View style={{ flexDirection: 'row', marginTop: 16}}>
-                            <Image source={{ uri: item.cateogry.image}} style={styles.cateogryImg}/>
-                            <View style={{ marginLeft: 11, width: 200}}>
+                        <View style={{ flexDirection: 'row', marginTop: 16 }}>
+                            <Image source={{ uri: item.cateogry.image }} style={styles.cateogryImg} />
+                            <View style={{ marginLeft: 11, width: 200 }}>
                                 <Text style={styles.theText}>The</Text>
                                 <Text style={styles.cateogryTitle}>{item.cateogry.slug}</Text>
                                 <Text style={styles.webContent}>{item.cateogry.content}</Text>
@@ -105,10 +105,9 @@ export default class PostCard extends Component {
                         <Text style={styles.greyText}>
                             {item.responses} Responses
                         </Text>
-                        <MaterialCommunityIcons
-                            name="crown"
-                            size={p(18)}
-                            color={item.fav ? colors.YELLOW : colors.DARKGREY}
+                        <Image
+                            source={item.fav ? images.crown : images.bincrown}
+                            style={styles.crownImg}
                         />
                     </View>
                 </View>
@@ -202,7 +201,7 @@ const styles = StyleSheet.create({
         marginTop: 12,
         padding: 7.5,
         borderWidth: 1,
-        borderColor: colors.GREY0,	
+        borderColor: colors.GREY0,
         borderRadius: 20,
         backgroundColor: colors.WHITE
     },
@@ -262,5 +261,9 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         overflow: 'hidden',
+    },
+    crownImg: {
+        width: 30,
+        height: 21
     }
 });
