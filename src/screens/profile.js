@@ -9,7 +9,7 @@ export default class Profile extends Component {
         const { item } = this.props;
         return (
             <View style={theme.container}>
-               <Header title={item.username} back/>
+               <Header title={item.username} back dark/>
                <Image source={{ uri: item.avatar}} style={styles.avatar}/>
             </View>
         );

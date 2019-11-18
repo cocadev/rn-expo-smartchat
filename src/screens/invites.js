@@ -7,7 +7,8 @@ export default class Invites extends Component {
     render() {
         return (
             <View style={theme.container}>
-               <Header title={'Invite People'} />
+               <View style={{ marginTop: 13 }}></View>
+               <Header title={'Invite People'} dark/>
             </View>
         );
     }

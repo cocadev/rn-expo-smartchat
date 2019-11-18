@@ -7,7 +7,8 @@ export default class Notifications extends Component {
     render() {
         return (
             <View style={theme.container}>
-               <Header title={'Notifications'} />
+                <View style={{ marginTop: 13 }}></View>
+               <Header title={'Notifications'} dark/>
             </View>
         );
     }

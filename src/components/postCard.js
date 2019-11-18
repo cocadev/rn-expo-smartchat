@@ -2,14 +2,28 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { colors } from '../common/colors';
 import { images } from '../common/images';
-import { POSTS } from '../common/fakeDB';
+import { Ionicons } from '@expo/vector-icons';
+import { p } from '../common/normalize';
+import { LinearGradient } from 'expo-linear-gradient';
+import Header from '../components/header';
+import UtilService from '../common/utils';
 
 export default class PostCard extends Component {
+
     render() {
-        const { item, index } = this.props;
+        const { item } = this.props;
         return (
-            <View style={[styles.row, POSTS.length - 1 == index && { borderBottomWidth: 0 }]}>
-                <View style={{ flexDirection: 'row' }}>
+            <LinearGradient
+                style={[styles.row, { backgroundColor: UtilService.acceptColor(item) }]}
+                colors={['transparent', colors.DARKY]}
+                start={[1, 0.2]} end={[1, 0]}
+            >
+                <Header
+                    title={'Home'}
+                    leftElement={(<Ionicons name="md-settings" size={p(18)} color={colors.WHITE} />)}
+                    rightElement={(<Image source={images.messages} />)}
+                />
+                <View style={{ flexDirection: 'row', marginTop: 8, marginLeft: 29 }}>
                     <TouchableOpacity onPress={this.props.onGoToProfile}>
                         <Image
                             source={{ uri: item.avatar }}
@@ -28,23 +42,8 @@ export default class PostCard extends Component {
                             </Text>
                         </Text>
                     </View>
-                    <Image source={images.dots} style={styles.dotImg} />
                 </View>
-                <View style={{ marginLeft: 47 }}>
-                    {
-                        item.description &&
-                        <Text style={styles.normalText}>
-                            {item.description}
-                            <Text style={{ fontFamily: 'Poppins-Bold' }}>{item.cateogry && item.cateogry.slug && item.cateogry.slug}</Text>
-                            <Text>{'!'}</Text>
-                        </Text>
-                    }
-                    {
-                        item.notice &&
-                        <View style={styles.notice}>
-                            <Text style={styles.noticeText}>{item.notice}</Text>
-                        </View>
-                    }
+                <View style={{ flexDirection: 'row' }}>
                     {
                         item.photo &&
                         <Image
@@ -52,73 +51,116 @@ export default class PostCard extends Component {
                             style={styles.bigPhoto}
                         />
                     }
-                    {
-                        item.website && item.website.title &&
-                        <View style={styles.website}>
-                            <View style={styles.imageContainerIOS}>
-                                <Image source={{ uri: item.website.image }} style={styles.webImg} />
+                    <View style={{ width: p(230)}}>
+                        {
+                            item.notice &&
+                            <View style={styles.notice}>
+                                <Text style={styles.noticeText}>{item.notice}</Text>
                             </View>
-                            <Text style={styles.webTitle}>{item.website.title}</Text>
-                            <Text style={[styles.webContent, { marginVertical: 10, marginLeft: 6 }]}>{item.website.content}</Text>
-                            <Text style={styles.webUrl}>{item.website.url}</Text>
-                        </View>
-                    }
-                    {
-                        item.photogroup &&
-                        <View style={{ flexDirection: 'row', marginTop: 17 }}>
-                            <View style={{ flex: 2, marginRight: 0 }}>
+                        }
+                        {
+                            item.website && item.website.title &&
+                            <View style={styles.website}>
+                                <View style={styles.imageContainerIOS}>
+                                    <Image source={{ uri: item.website.image }} style={styles.webImg} />
+                                </View>
+                                <Text style={styles.webTitle}>{item.website.title}</Text>
+                                <Text style={[styles.webContent, { marginVertical: 2, marginLeft: 6 }]}>{item.website.content}</Text>
+                                <Text style={styles.webUrl}>{item.website.url}</Text>
+                            </View>
+                        }
+                        {
+                            item.photogroup &&
+                            <View style={{ marginTop: 16, marginLeft: 30 }}>
                                 <Image
                                     source={{ uri: item.photogroup[0] }}
-                                    style={styles.photo}
+                                    style={[styles.photo, { height: 145}]}
                                 />
+                                <View style={{ flexDirection: 'row', marginTop: 7 }}>
+                                    <View style={{ flex: 2, marginRight: 0 }}>
+                                        <Image
+                                            source={{ uri: item.photogroup[1] }}
+                                            style={styles.photo}
+                                        />
+                                    </View>
+                                    <View style={{ flex: 1, marginLeft: 7 }}>
+                                        <Image
+                                            source={{ uri: item.photogroup[2] }}
+                                            style={styles.photo2}
+                                        />
+                                        <Image
+                                            source={{ uri: item.photogroup[3] }}
+                                            style={styles.photo2}
+                                        />
+                                    </View>
+                                </View>
                             </View>
-                            <View style={{ flex: 1, marginLeft: 7 }}>
-                                <Image
-                                    source={{ uri: item.photogroup[1] }}
-                                    style={styles.photo2}
-                                />
-                                <Image
-                                    source={{ uri: item.photogroup[2] }}
-                                    style={styles.photo2}
-                                />
+                        }
+                        {/* {
+                            item.cateogry && item.cateogry.slug &&
+                            <View style={{ flexDirection: 'row', marginTop: 16 }}>
+                                <Image source={{ uri: item.cateogry.image }} style={styles.cateogryImg} />
+                                <View style={{ marginLeft: 11, width: 200 }}>
+                                    <Text style={styles.theText}>The</Text>
+                                    <Text style={styles.cateogryTitle}>{item.cateogry.slug}</Text>
+                                    <Text style={styles.webContent}>{item.cateogry.content}</Text>
+                                </View>
                             </View>
-                        </View>
-                    }
-                    {
-                        item.cateogry && item.cateogry.slug &&
-                        <View style={{ flexDirection: 'row', marginTop: 16 }}>
-                            <Image source={{ uri: item.cateogry.image }} style={styles.cateogryImg} />
-                            <View style={{ marginLeft: 11, width: 200 }}>
-                                <Text style={styles.theText}>The</Text>
-                                <Text style={styles.cateogryTitle}>{item.cateogry.slug}</Text>
-                                <Text style={styles.webContent}>{item.cateogry.content}</Text>
-                            </View>
-                        </View>
-                    }
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        } */}
+
+                        {/* <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Image
                             source={images.chat}
                             style={styles.chatImg}
                         />
-                        <Text style={styles.greyText}>
-                            {item.responses} Responses
-                        </Text>
                         <Image
                             source={item.fav ? images.crown : images.bincrown}
                             style={styles.crownImg}
                         />
+                    </View> */}
+                    </View>
+                    <View style={{ alignItems: 'center', position: 'absolute', right: 19, marginTop: 30 }}>
+                        <Image
+                            source={item.fav ? images.crown : images.bincrown}
+                            style={styles.crownImg}
+                        />
+                        <Text style={{ fontSize: 14, fontFamily: 'Poppins-Medium', color: colors.WHITE }}>32</Text>
+                        <Image
+                            source={images.crown}
+                            style={styles.crownImg}
+                        />
+                        <Text style={{ fontSize: 14, fontFamily: 'Poppins-Medium', color: colors.WHITE }}>89</Text>
+                        <Image
+                            source={images.crown}
+                            style={styles.crownImg}
+                        />
                     </View>
                 </View>
-            </View>
+                {
+                    item.description &&
+                    <Text style={styles.normalText}>
+                        {item.description}
+                    </Text>
+                }
+                <View style={{ alignItems: 'center'}}>
+                    <View style={styles.total}>
+                        {
+                            item.hashtag && item.hashtag.map((hash, k) =>
+                                <View key={k} style={styles.tagView}>
+                                    <Text style={styles.tagText}>{hash}</Text>
+                                </View>)
+                        }
+                    </View>
+                </View>
+            </LinearGradient>
         );
     }
 }
 
 const styles = StyleSheet.create({
     row: {
+        flex: 1,
         paddingVertical: 16,
-        paddingRight: 18,
-        paddingLeft: 15,
     },
     avatar: {
         width: 36,
@@ -128,44 +170,45 @@ const styles = StyleSheet.create({
     titleText: {
         fontSize: 17,
         fontFamily: 'Poppins-Medium',
-        lineHeight: 22
+        lineHeight: 22,
+        color: colors.WHITE
     },
     timeText: {
         fontSize: 12,
         fontFamily: 'Poppins-Regular',
-        color: colors.DARKGREY,
+        color: colors.WHITE,
         lineHeight: 16
     },
     normalText: {
-        fontSize: 15,
-        fontFamily: 'Poppins-Regular',
-        lineHeight: 20,
-        marginTop: 10
+        fontSize: 17,
+        fontFamily: 'Poppins-Bold',
+        lineHeight: 30,
+        marginTop: 10,
+        marginLeft: 30,
+        color: colors.WHITE
     },
-    greyText: {
-        color: colors.DARKGREY,
-        fontFamily: 'Poppins-Light',
-        fontSize: 13,
-        lineHeight: 18,
-        marginLeft: 4,
-        marginVertical: 14,
-        flex: 1
+    tagText: {
+        color: colors.WHITE,
+        fontFamily: 'Poppins-Regular',
+        fontSize: 14,
+        lineHeight: 21,
     },
     noticeText: {
         color: colors.WHITE,
-        fontSize: 20,
+        fontSize: 26,
+        lineHeight: 29,
         fontFamily: 'Poppins-Bold'
     },
     photo: {
         width: "100%",
-        height: 155,
+        height: 125,
         borderRadius: 20,
         backgroundColor: colors.GREY7,
         resizeMode: 'cover',
     },
     photo2: {
         width: "100%",
-        height: 74,
+        height: 60,
         borderRadius: 20,
         marginBottom: 6,
         backgroundColor: colors.GREY7,
@@ -173,9 +216,8 @@ const styles = StyleSheet.create({
     },
     bigPhoto: {
         width: '100%',
-        height: 230,
+        height: 250,
         marginTop: 14.25,
-        borderRadius: 20,
         backgroundColor: colors.GREY7,
         resizeMode: 'cover'
     },
@@ -186,27 +228,28 @@ const styles = StyleSheet.create({
     notice: {
         height: 230,
         width: '100%',
-        backgroundColor: colors.GREEN,
         borderRadius: 20,
         marginTop: 14.25,
         paddingHorizontal: 24,
         paddingTop: 32
     },
     website: {
-        height: 308,
-        width: "100%",
+        height: 270,
+        // width: "100%",
         marginTop: 12,
+        marginLeft: 30,
         padding: 7.5,
         borderWidth: 1,
         borderColor: colors.GREY0,
         borderRadius: 20,
+        borderTopRightRadius: 0,
         backgroundColor: colors.WHITE
     },
     webImg: {
         width: '100%',
-        height: 168,
+        height: 130,
         borderTopLeftRadius: 18,
-        borderTopRightRadius: 18
+        borderTopRightRadius: 0
     },
     webTitle: {
         color: colors.DARKBLUE,
@@ -214,18 +257,18 @@ const styles = StyleSheet.create({
         lineHeight: 27,
         fontFamily: 'Poppins-Bold',
         marginLeft: 6,
-        marginTop: 11
+        marginTop: 7
     },
     webContent: {
         color: colors.LIGHTDARK,
-        fontSize: 13,
-        lineHeight: 18,
+        fontSize: 14,
+        lineHeight: 17,
         fontFamily: 'Poppins-Light'
     },
     webUrl: {
-        color: colors.LIGHTDARK,
-        fontSize: 11,
-        lineHeight: 17,
+        color: colors.PURPLE,
+        fontSize: 14,
+        lineHeight: 21,
         fontFamily: 'Poppins-Light',
         marginLeft: 6,
     },
@@ -256,11 +299,29 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 0,
         borderBottomRightRadius: 0,
         borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
+        borderTopRightRadius: 0,
         overflow: 'hidden',
     },
     crownImg: {
-        width: 23,
-        height: 16
+        width: 29,
+        height: 21,
+        marginTop: 30
+    },
+    tagView: {
+        backgroundColor: 'rgba(0,0,0,0.2)',
+        borderRadius: 100,
+        padding: 3,
+        paddingHorizontal: 11,
+        marginHorizontal: 4,
+        marginTop: 5,
+        justifyContent: 'flex-start'
+    },
+    total: {
+        flexDirection: 'row',
+        // justifyContent: 'center',
+        marginHorizontal: 3,
+        marginTop: 12,
+        flexWrap: 'wrap',
+        width: p(237)
     }
 });

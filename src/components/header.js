@@ -7,7 +7,7 @@ import { Actions } from 'react-native-router-flux';
 
 export default class ProfileScreen extends Component {
     render() {
-        const { title, leftElement, rightElement, back } = this.props;
+        const { title, leftElement, rightElement, back, dark } = this.props;
         return (
             <View style={styles.container}>
                 <View style={styles.icon}>
@@ -21,7 +21,7 @@ export default class ProfileScreen extends Component {
                         />
                     }
                 </View>
-                <Text style={styles.text}>
+                <Text style={[styles.text, dark && { color: colors.DARK }]}>
                     {title}
                 </Text>
                 <View style={[styles.icon, { alignItems: 'flex-end' }]}>
@@ -34,22 +34,22 @@ export default class ProfileScreen extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        height: 80,
+        height: 60,
         alignItems: 'center',
-        paddingTop: 24,
+        paddingTop: 12,
         flexDirection: "row",
-        borderBottomColor: colors.GREY,
-        borderBottomWidth: 2
+        marginHorizontal: 20,
+        // backgroundColor: 'yellow'
     },
     text: {
         flex: 1,
         textAlign: 'center',
         fontSize: 24,
         fontFamily: 'Poppins-Bold',
-        paddingTop: 3
+        paddingTop: 3,
+        color: colors.WHITE
     },
     icon: {
-        marginHorizontal: 15,
         width: p(20),
     }
 });

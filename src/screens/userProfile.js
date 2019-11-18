@@ -7,7 +7,8 @@ export default class UserProfile extends Component {
     render() {
         return (
             <View style={theme.container}>
-               <Header title={'User Profile'} />
+               <View style={{ marginTop: 13 }}></View>
+               <Header title={'User Profile'} dark/>
             </View>
         );
     }
